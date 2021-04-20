@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ConfigDumpInfo xmlns="http://v8.1c.ru/8.3/xcf/dumpinfo" xmlns:xen="http://v8.1c.ru/8.3/xcf/enums" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" format="Hierarchical" version="2.11">
+	<ConfigVersions>
+		<Metadata name="Catalog.Контрагенты" id="7fc2722d-8b62-474c-96f0-9cf0cb5f56a0" configVersion="244e86aa1eea2d469cf33db72fc7781400000000">
+			<Metadata name="Catalog.Контрагенты.Attribute.Логин" id="14331484-23ce-4875-a183-fd6817cabc93"/>
+			<Metadata name="Catalog.Контрагенты.Attribute.Пароль" id="63a3e556-fca4-4491-8f86-e281b303682e"/>
+		</Metadata>
+		<Metadata name="Catalog.Номенклатура" id="dccc8d8e-cd82-4021-b371-b31ab8beb10f" configVersion="52cd14f507d917488a25975451fe6c4200000000"/>
+		<Metadata name="Configuration.Конфигурация" id="28e98d57-ff63-49ef-80f8-56338b48d3ef" configVersion="1058cc03a353e54492cb3dc880d4412200000000"/>
+		<Metadata name="Document.Заказ" id="bb66fc0b-faf7-45f9-839a-1a9915c9e65c" configVersion="0ca750557206214bbb84d1a5f6117d0200000000">
+			<Metadata name="Document.Заказ.Attribute.Контрагент" id="1b7a0ec0-f6ab-428d-9aed-82dfa938b83b"/>
+			<Metadata name="Document.Заказ.Attribute.СтатусЗаказа" id="27c66fcb-b884-4fb8-a226-6867d9541e8f"/>
+			<Metadata name="Document.Заказ.TabularSection.Товары.Attribute.Количество" id="2d1d6108-f320-467b-8791-65091bbdedb8"/>
+			<Metadata name="Document.Заказ.TabularSection.Товары.Attribute.Сумма" id="74e441ab-6f4d-4bd0-91c4-9bf679e6a477"/>
+			<Metadata name="Document.Заказ.TabularSection.Товары.Attribute.Цена" id="92d9613e-6b19-4fb2-ab93-4b2311769535"/>
+			<Metadata name="Document.Заказ.Attribute.СсылкаНаОплату" id="a9a213fc-5eab-4400-9763-eca894937186"/>
+			<Metadata name="Document.Заказ.Attribute.ДатаВывоза" id="aec0cb34-7ed1-4300-ad35-fb5063d31c6c"/>
+			<Metadata name="Document.Заказ.TabularSection.Товары" id="e22c168a-41d1-4365-a616-38c17042b821"/>
+			<Metadata name="Document.Заказ.TabularSection.Товары.Attribute.Номенклатура" id="f9df2aba-b5f1-45cd-9975-f47540f450d6"/>
+		</Metadata>
+		<Metadata name="Document.Заказ.ObjectModule" id="bb66fc0b-faf7-45f9-839a-1a9915c9e65c.0" configVersion="cf13bded5911324bb2f129ab4e052f9200000000"/>
+		<Metadata name="Enum.СтатусыЗаказов" id="74ebce52-0cc9-4788-b5fc-67e840f9ec76" configVersion="8dc906ca4484284597e6be3904e9364400000000">
+			<Metadata name="Enum.СтатусыЗаказов.EnumValue.Новый" id="2f6167d8-c7ef-451b-85fb-1925394a6efc"/>
+			<Metadata name="Enum.СтатусыЗаказов.EnumValue.Оплачен" id="64433dd6-9366-4d2c-92c9-a95ff5c11631"/>
+			<Metadata name="Enum.СтатусыЗаказов.EnumValue.Завершен" id="b00372f8-1a96-450d-8199-4b21c2a8941a"/>
+			<Metadata name="Enum.СтатусыЗаказов.EnumValue.Подтвержден" id="ca32faaa-491b-44db-80ab-2aa7b5d7f336"/>
+		</Metadata>
+		<Metadata name="Language.Русский" id="8ad14819-e6db-4961-b915-cab7b79be369" configVersion="93cd78cc11a89649bea465ab96c119bb00000000"/>
+	</ConfigVersions>
+</ConfigDumpInfo>
