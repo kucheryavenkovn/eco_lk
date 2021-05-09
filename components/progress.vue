@@ -13,6 +13,7 @@
           ></v-progress-linear>
         </v-col>
       </v-row>
+  </v-container>
 </template>
 
 <script>

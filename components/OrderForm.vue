@@ -7,7 +7,7 @@
             :rules="DateRules"
           label="Date"
           required
-          type="text"/>
+          />
       </v-card-text>
       <v-card-actions>
           <v-btn
@@ -16,7 +16,7 @@
         color="success"
         class="mr-4"
         @click="addOrder"
-          >
+          >добавить</v-btn>
       </v-card-actions>
   </v-card>
 </template>

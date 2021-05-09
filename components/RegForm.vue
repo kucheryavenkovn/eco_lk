@@ -4,7 +4,7 @@
     <v-card-text>
       <v-form ref="form" v-model="valid" validation class="mt-4">
         <v-text-field
-          v-model="usernname"
+          v-model="username"
           :rules="usernameRules"
           label="Login"
           placeholder="Ваш логин"
@@ -69,6 +69,7 @@ computed: {
             });
             await this.$router.push("/user");
           } catch (e) {
+            this.$store.commit('setError',e)
           } finally {
             this.$store.commit("setLoading", false);
           }

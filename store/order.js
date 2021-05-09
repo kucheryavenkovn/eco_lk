@@ -13,10 +13,10 @@ export const actions = {
       throw error;
     }
   },
-  async sendZak({}, user) {
+  async sendZak( user) {
     try {
       await this.$axios.post(
-        "http://127.0.0.1/1ib/odata/standard.odata/Catalog_Контрагенты?$format=json",
+        "http://127.0.0.1/1ib/odata/standard.odata/Document_%D0%97%D0%B0%D0%BA%D0%B0%D0%B7$format=json",
         {
           data: user.data
         }
@@ -25,13 +25,13 @@ export const actions = {
       throw error;
     }
   },  
-  async deleteOrder({},user)
+  async deleteOrder(user)
   {
     try{
-    await this.$axios.DELETE()
+    await this.$axios.DELETE( "http://127.0.0.1/1ib/odata/standard.odata/Document_%D0%97%D0%B0%D0%BA%D0%B0%D0%B7$format=json")
   }
   catch(e)
-  {}
+  {throw e}
 }
 };
 

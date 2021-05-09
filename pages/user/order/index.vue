@@ -1,6 +1,7 @@
 <template>
   <v-row justify="center" align="center">
     <v-col cols="12">
+      <v-btn class="mb-2" @click="addItem">Новый заказ</v-btn>
       <v-data-table
         :headers="headers"
         :items="orders"
@@ -65,10 +66,10 @@ export default {
     store.commit("setLoading", true);
     try {
       if (store.getters["orders/ordersList".length === 0]) {
-        user = btoa(store.getters["auth/token"]).split(":");
+        const user = btoa(store.getters["auth/token"]).split(":");
         await store.dispatch("orders/fetchZakById", user[0]); //поменять если буду использовать плагин
       }
-    } catch {
+    } catch (e) {
       console.log(e);
       store.commit("setError", e);
     } finally {
@@ -80,15 +81,22 @@ export default {
       return this.$store.getters["orders/ordersList"];
     }
   },
-  methods:{
-      editItem(item) {
-       this.$router.push('user/order/${item.uuid}')
-  },
-  deleteItem(item) {
-    this.$store.commit('setLoading',true)
-    this.$store.dispatch('order/deleteOrder')
-    this.$store.dispatch('orders/fetchZakById',)
-  }
+  methods: {
+    editItem(item) {
+      this.$router.push(`user/order/${item.id}`);
+    },
+    deleteItem(item) {
+      this.$store.commit("setLoading", true);
+      this.$store.dispatch("order/deleteOrder", item.id).then(() => {
+        //  const user = btoa(store.getters["auth/token"]).split(":");
+        this.$store.dispatch("orders/fetchZakById", item.idofclient); //заменить на правельное
+        this.$store.commit("setLoading", false);
+      });
+    },
+    addItem() {
+      this.$store.commit("/order/clearOrder");
+      this.$router.push("user/order/new");
+    }
   }
 };
 </script>

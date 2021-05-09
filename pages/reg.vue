@@ -1,50 +1,19 @@
 <template>
-  <form>
-    <h1>Registration</h1>
-    <Notification :message="error" v-if="error"/>
-   <form method="post" @submit.prevent="register">
-            <div class="field">
-              <label class="label">Telephone number</label>
-              <div class="control">
-                <input
-                  type="text"
-                  class="input"
-                  name="username"
-                  v-model="username"
-                  required
-                />
-              </div>
-            </div>
-            <div class="field">
-              <label class="label">Password</label>
-              <div class="control">
-                <input
-                  type="password"
-                  class="input"
-                  name="password"
-                  v-model="password"
-                  required
-                />
-              </div>
-            </div>
-            <div class="control">
-              <button type="submit" class="button is-dark is-fullwidth">Register</button>
-            </div>
-          </form>
-
-            <div class="has-text-centered" style="margin-top: 20px">
-            Already got an account? <nuxt-link to="/login">Login</nuxt-link>
-            </div>
-            <div class="has-text-centered" style="margin-top: 20px">
-            Do not want to? <nuxt-link to="/">Home</nuxt-link>
-            </div>
-  </form>
+  <v-row justify="center" align="center">
+    <v-col cols="12">
+      <div class="text-center">
+        <reg-form />
+      </div>
+    </v-col>
+  </v-row>
 </template>
 
 <script>
-import Notification from '~/components/notification'
+import RegForm from "~/components/RegForm.vue";
 export default {
-  layout:"empty",
+  name: "Regestration",
+  components: { RegForm }
+  /*  layout:"empty",
   components: {
     Notification,
   },
@@ -84,6 +53,6 @@ export default {
       }
   }
 }
-
-}
+*/
+};
 </script>
