@@ -6,7 +6,7 @@
         <v-text-field
           v-model="username"
           :rules="usernameRules"
-          label="Login"
+          label="Логин"
           placeholder="Ваш логин"
           required
           type="text"
@@ -43,8 +43,8 @@ export default {
       valid: false,
       username: "",
       password: "",
-      usernameRules: [v => !!v || "Поле Login обязательно",
-      v => /^\+7|8*/.test(v) || 'Номер телефона должен начинатся с 8 или +7',
+      usernameRules: [v => !!v || "Поле логин обязательно",
+      v => /^\+7|8/.test(v) || 'Номер телефона должен начинатся с 8 или +7',
       v => (v.length >= 10 && v.length<=11) || "Проверте набранный номер",
       ],
       passwordRules: [
@@ -68,6 +68,7 @@ export default {
             });
             await this.$router.push("/user");
           } catch (e) {
+            this.$store.commit('setError',e)
           } finally {
             this.$store.commit("setLoading", false);
           }

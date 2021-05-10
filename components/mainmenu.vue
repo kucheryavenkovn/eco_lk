@@ -2,8 +2,8 @@
   <v-app-bar fixed app>
       <v-toolbar-title v-text="title" />
       <v-spacer />
-      <v-btn v-for="item in links" :key="item.title" plain :to="item.url">
-        {{ item.title }}
+      <v-btn v-for="item in links" :key="item.titles" plain :to="item.url">
+        {{ item.titles }}
       </v-btn>
       <v-btn v-if="isLogedIn" plain @click="onLogout">
         Выйти
@@ -22,16 +22,16 @@ name:"MainMenu",
     links() {
       if (!this.isLogedIn) {
         return [
-          { title: "Главная", icon: "mdi-home", url: "/" },
-          { title: "О нас", icon: "mdi-home", url: "/about" },
-          { title: "Войти", icon: "mdi-home", url: "/login" },
-          { title: "Зарегестрироваться", icon: "mdi-home", url: "/reg" }
+          { titles: "Главная", icon: "mdi-home", url: "/" },
+          { titles: "О нас", icon: "mdi-home", url: "/about" },
+          { titles: "Войти", icon: "mdi-home", url: "/login" },
+          { titles: "Зарегестрироваться", icon: "mdi-home", url: "/reg" }
         ];
       } else {
         return [
-          { title: "Главная", icon: "mdi-home", url: "/" },
-          { title: "О нас", icon: "mdi-home", url: "/about" },
-          { title: "Профиль", icon: "mdi-home", url: "/user" }
+          { titles: "Главная", icon: "mdi-home", url: "/" },
+          { titles: "О нас", icon: "mdi-home", url: "/about" },
+          { titles: "Профиль", icon: "mdi-home", url: "/user" }
         ];
       }
     }

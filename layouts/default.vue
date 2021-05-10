@@ -6,19 +6,19 @@
         <nuxt />
       </v-container>
     </v-main>
-    <progress-vue />
+    <progressing/>
     <info-vue />
   </v-app>
 </template>
 
 <script>
 import infoVue from "~/components/info.vue";
-import progressVue from "~/components/progress.vue";
+import progressing from "~/components/progress.vue";
 import mainMenu from "~/components/mainmenu.vue";
 export default {
   components: {
     infoVue,
-    progressVue,
+    progressing,
     mainMenu
   },
   data() {

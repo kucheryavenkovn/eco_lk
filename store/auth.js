@@ -62,6 +62,7 @@ export const actions = {
     }
   },
   autoLogin({ commit }) {
+    // eslint-disable-next-line no-undef
     const cookieStr = process.browser
       ? document.cookie
       : this.app.context.req.headers.cookie;
@@ -69,7 +70,7 @@ export const actions = {
     const token = cookies.token;
 
     if (token) {
-      commit(authAccess, token);
+      commit('authAccess', token);
     } else {
       commit("logoutUser");
     }
