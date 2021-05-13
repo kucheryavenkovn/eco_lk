@@ -1,41 +1,104 @@
 <template>
-  <section>
-    <h1>{{ pageTitle }}</h1>
-    <ul>
-      <li v-for="user of users.value" :key="user.Логин">
-        <a href="#" @click.prevent="openUser(user)">{{ user.Description }} </a>
-      </li>
-    </ul>
-  </section>
+  <v-row justify="center" align="center">
+    <v-col cols="12">
+      <v-btn class="mb-2" @click="addItem">Новый заказ</v-btn>
+      <v-data-table
+        :headers="headers"
+        :items="orders"
+        sort-by="date"
+        class="elevation-1"
+      >
+        <template #item.date="{item}">
+          {{ new Date(item.ДатаВывоза).toLocaleString }}
+        </template>
+        <template #item.actions="item">
+          <v-icon
+            v-if="item.status === 'новый'"
+            small
+            class="mr-2"
+            @click="editItem(item)"
+          >
+            mdi-pencil
+          </v-icon>
+          <v-icon
+            v-if="item.status === 'новый'"
+            small
+            class="mr-2"
+            @click="deleteItem(item)"
+          >
+            mdi-delete
+          </v-icon>
+        </template>
+      </v-data-table>
+    </v-col>
+  </v-row>
 </template>
 
 <script>
 export default {
   name: "Profile",
   middleware: ["auth"],
-  async fetch({ store, error }) {
+  data: () => ({
+    headers: [
+      {
+        Text: "Наименование",
+        align: "start",
+        sortable: false,
+        value: "title"
+      },
+      {
+        Text: "Дата",
+        value: "date"
+      },
+      {
+        Text: "Статус",
+        value: "status"
+      },
+      {
+        Text: "Действия",
+        align: "actions",
+        sortable: false,
+        value: "end"
+      }
+    ]
+  }),
+  async fetch({ store }) {
+    store.commit("setLoading", true);
     try {
-      store.commit("setLoading", true);
-      if (store.getters["order/ordersList"].length === 0) {
-        user = btoa(store.getters["auth/token"]).split(":");
-        await store.dispatch("order/fetchZakById", user[0]);
+      if (store.getters["orders/ordersList".length === 0]) {
+        const user = btoa(store.getters["auth/token"]).split(":");
+        await store.dispatch("orders/fetchZakById", user[0]); //поменять если буду использовать плагин
       }
     } catch (e) {
-      store.commit("setError", e, { root: true });
+      console.log(e);
+      store.commit("setError", e);
     } finally {
       store.commit("setLoading", false);
     }
   },
-  data: () => ({ pageTitle: "Users page" }),
   computed: {
-    users() {
-      return this.$store.getters["order/ordersList"];
+    orders() {
+      return this.$store.getters["orders/ordersList"];//проверить
     }
   },
   methods: {
-    openUser() {
-      this.$router.push("/user/klient" + this.user.id);
+    editItem(item) {
+      this.$router.push(`user/order/${item.Контрагент_Key}`);
+    },
+    deleteItem(item) {
+      this.$store.commit("setLoading", true);
+      this.$store.dispatch("order/deleteOrder", item.id).then(() => {
+        //  const user = btoa(store.getters["auth/token"]).split(":");
+        this.$store.dispatch("orders/fetchZakById", item.Контрагент_Key); //заменить на правильное
+        this.$store.commit("setLoading", false);
+      });
+    },
+    addItem() {
+      this.$store.commit("order/clearOrder");
+      this.$router.push("user/order/new");
     }
   }
 };
 </script>
+
+<style></style>

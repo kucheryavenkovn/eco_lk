@@ -25,8 +25,7 @@ export const actions = {
   async registerUser({ store, commit }, payload) {
     try {
       await store.dispatch("/user/sendUser", {
-        username: payload.username,
-        password: payload.password
+        payload
       });
 
       const user1 = await store.dispatch(

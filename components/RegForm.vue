@@ -12,6 +12,22 @@
           type="text"
         />
         <v-text-field
+          v-model="name"
+          :rules="nameRules"
+          label="Имя"
+          placeholder="Имя"
+          required
+          type="text"
+        />
+        <v-text-field
+          v-model="surname"
+          :rules="nameRules"
+          label="Фамилия"
+          placeholder="Фамилия"
+          required
+          type="text"
+        />
+        <v-text-field
           v-model="password"
           :rules="passwordRules"
           :counter="true"
@@ -43,13 +59,19 @@ export default {
       valid: false,
       username: "",
       password: "",
+      name:"",
+      surname:"",
      usernameRules: [v => !!v || "Поле логин обязательно",
-      v => /^(\+7)|8*/.test(v) || 'Номер телефона должен начинатся с 8 или +7',
+      v => /^(\+7)|8*/.test(v) || "Номер телефона должен начинатся с 8 или +7",
       v => (v.length >= 10 && v.length<=11) || "Проверте набранный номер",
       ],
       passwordRules: [
         v => !!v || "Пароль обязателен",
         v => v.length >= 1 || "Пароль обязательно должен содержать 1 символ"
+      ],
+      nameRules:[
+        v=>!!v||"Поле имя и фамилия обязательны ",
+        v => v.length >= 1 || "должен содержать хотя бы 1 символ"
       ]
     };
   },
@@ -65,7 +87,8 @@ computed: {
           try {
             await this.$store.dispatch("auth/loginUser", {
               username: this.username,
-              password: this.password
+              password: this.password,
+              name:this.name+" "+this.surname
             });
             await this.$router.push("/user");
           } catch (e) {

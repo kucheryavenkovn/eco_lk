@@ -37,8 +37,8 @@ export const actions = {
         "http://127.0.0.1/1ib/odata/standard.odata/Catalog_Контрагенты?$format=json",
         {
           Логин: user.username,
-          Пароль: user.password
-          
+          Пароль: user.password,
+          Description: user.name
         }
       );
     } catch (error) {

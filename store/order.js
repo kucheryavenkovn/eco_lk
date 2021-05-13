@@ -3,7 +3,7 @@ export const actions = {
     try {
       user = await this.$axios.$get(
         "http://127.0.0.1/1ib/odata/standard.odata/Document_%D0%97%D0%B0%D0%BA%D0%B0%D0%B7?$format=json" +
-          encodeURI("$filter=Контрагент_Key eq ") +//там не логин поменять
+          encodeURI("$filter=Контрагент_Key eq ") +
           "'" +
           encodeURI(userId) +
           "'"
@@ -41,7 +41,10 @@ export const getters = {
 
 export const mutations = {
   setOrders(state,users)
-  { state.ordersList = users}
+  { state.ordersList = users},
+  clearOrders(state){
+    state.ordersList = null
+  }
 };
 
 export const state = () => ({
