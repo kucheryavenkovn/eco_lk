@@ -12,7 +12,10 @@ export const mutations = {
     Cookies.set("token", token);
   },
   logoutUser(state) {
-    state.token = null;
+    state.token = null,
+    this.$store.commit(
+      "order/clearOrders"
+    )
     Cookies.remove("token");
   }
 };
@@ -27,7 +30,7 @@ export const actions = {
       await store.dispatch("/user/sendUser", {
         payload
       });
-
+//код проверки аутентификации
       const user1 = await store.dispatch(
         "user/fetchUserById",
         payload.username
@@ -79,14 +82,14 @@ export const actions = {
       const user1 = await store.dispatch(
         "user/fetchUserById",
         payload.username
-      );
+      );//код аутентификации пользователя
       if (
         user1.value.Логин === payload.username &&
         user1.value.Пароль === payload.password
       ) {
         commit(
           "authAccess",
-          "Basic" + btoa(user1.value.kod + ":" + payload.password)//поменять на нормальное значение
+          "Basic" + btoa(user1.value.kod + ":" + payload.password)
         );
         commit(
           "setMessage",
