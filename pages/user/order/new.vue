@@ -2,7 +2,7 @@
  <v-row justify="center" align="center">
     <v-col cols="12">
       <div class="text-center">
-        <order-form>
+        <order-form/>
       </div>
     </v-col>
   </v-row>

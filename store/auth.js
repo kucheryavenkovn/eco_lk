@@ -13,9 +13,9 @@ export const mutations = {
   },
   logoutUser(state) {
     state.token = null,
-    this.$store.commit(
+  /*  this.$store.commit(
       "order/clearOrders"
-    )
+    )*/
     Cookies.remove("token");
   }
 };
