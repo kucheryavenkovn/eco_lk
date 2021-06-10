@@ -43,7 +43,7 @@
         :loading="loading"
         color="success"
         class="mr-4"
-        @click="onReg"
+        @click.native="onReg"
       >
         Войти
       </v-btn>

@@ -16,7 +16,7 @@ export const actions = {
   async sendZak( user) {
     try {
       await this.$axios.post(
-        "http://10.10.0.22/lkrest/odata/standard.odata/Document_%D0%97%D0%B0%D0%BA%D0%B0%D0%B7?$format=json",
+        " /Document_%D0%97%D0%B0%D0%BA%D0%B0%D0%B7?$format=json",
         {
           data: user.data
         }
@@ -28,7 +28,7 @@ export const actions = {
   async deleteOrder(user)
   {
     try{
-    await this.$axios.DELETE( "http://10.10.0.22/lkrest/odata/standard.odata/Document_%D0%97%D0%B0%D0%BA%D0%B0%D0%B7?$format=json" +encodeURI(`$filter=Контрагент_Key eq ${user.Контрагент_Key} and Ref_Key eq ${user.Ref_Key}`) )
+    await this.$axios.DELETE( " /Document_%D0%97%D0%B0%D0%BA%D0%B0%D0%B7?$format=json" +encodeURI(`$filter=Контрагент_Key eq ${user.Контрагент_Key} and Ref_Key eq ${user.Ref_Key}`) )
   }
   catch(e)
   {throw e}

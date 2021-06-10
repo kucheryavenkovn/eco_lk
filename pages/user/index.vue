@@ -16,7 +16,7 @@
             v-if="item.status === 'новый'"
             small
             class="mr-2"
-            @click="editItem(item)"
+            @click.native="editItem(item)"
           >
             mdi-pencil
           </v-icon>
@@ -24,7 +24,7 @@
             v-if="item.status === 'новый'"
             small
             class="mr-2"
-            @click="deleteItem(item)"
+            @click.native="deleteItem(item)"
           >
             mdi-delete
           </v-icon>

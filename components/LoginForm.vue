@@ -27,7 +27,7 @@
         :loading="loading"
         color="success"
         class="mr-4"
-        @click="onLogin"
+        @click.native="onLogin"
       >
         Войти
       </v-btn>

@@ -18,7 +18,7 @@
         :loading="loading"
         color="success"
         class="mr-4"
-        @click="addOrder"
+        @click.native="addOrder"
         >добавить</v-btn
       >
       <v-btn color="success" class="mr-4" @click="abort">Обратно</v-btn>

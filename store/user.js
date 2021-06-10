@@ -10,7 +10,7 @@ export const actions = {
   async fetchUsers() {
     try {
       const user = await this.$axios.get(
-        "http://10.10.0.22/lkrest/odata/standard.odata/Catalog_Контрагенты?$format=json"
+        " /Catalog_Контрагенты?$format=json"
       );
       return user;
     } catch (error) {
@@ -20,7 +20,7 @@ export const actions = {
   async fetchUserById({}, userID) {
     try {
       const user = await this.$axios.get(
-        "http://10.10.0.22/lkrest/odata/standard.odata/" +
+        " /" +
           encodeURI("Catalog_Контрагенты?$format=json&$filter=Логин eq ") +
           "'" +
           encodeURI(userID) +
@@ -34,7 +34,7 @@ export const actions = {
   async sendUser({}, user) {
     try {
       await this.$axios.post(
-        "http://10.10.0.22/lkrest/odata/standard.odata/Catalog_Контрагенты?$format=json",
+        " /Catalog_Контрагенты?$format=json",
         {
           Логин: user.username,
           Пароль: user.password,
@@ -48,7 +48,7 @@ export const actions = {
   async fetchZakById({}, userId) {
     try {
       return await this.$axios.$get(
-        "http://10.10.0.22/lkrest/odata/standard.odata/Document_%D0%97%D0%B0%D0%BA%D0%B0%D0%B7$format=json" +
+        " /Document_%D0%97%D0%B0%D0%BA%D0%B0%D0%B7$format=json" +
           encodeURI("$filter=Логин eq ") +
           "'" +
           encodeURI(userId) +
